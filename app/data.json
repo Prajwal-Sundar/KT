@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "Profile": "Engineering",
+    "ExamName": "JEE",
+    "img": "https://prod-files-secure.s3.us-west-2.amazonaws.com/b020cb67-a9a0-4a42-84cd-216945bf98f8/67927879-b327-473a-90b9-41a3ca2c41fe/temple.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45FSPPWI6X%2F20241223%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241223T062251Z&X-Amz-Expires=3600&X-Amz-Signature=39d5eed40548a4c13b39b5291f3a0d01d77730d4872c39769181055bb96d3ce3&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "Color": "#F5D365"
+  },
+  {
+    "id": 2,
+    "Profile": "Doctor",
+    "ExamName": "NEET",
+    "img": "doctor.png",
+    "Color": "#EF523C"
+  },
+  {
+    "id": 3,
+    "Profile": "Law",
+    "ExamName": "CLAT",
+    "img": "lawyer.png",
+    "Color": "#FEAFE1"
+  },
+  {
+    "id": 4,
+    "Profile": "Law",
+    "ExamName": "CLAT",
+    "img": "lawyer.png",
+    "Color": "#FEAFE1"
+  },
+  {
+    "id": 5,
+    "Profile": "Law",
+    "ExamName": "CLAT",
+    "img": "lawyer.png",
+    "Color": "#FEAFE1"
+  }
+]

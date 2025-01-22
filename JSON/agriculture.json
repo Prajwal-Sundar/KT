@@ -1,0 +1,58 @@
+{
+    "domain": "Agriculture",
+    "tagline": "Explore the flourishing world of Agriculture",
+    "subtagline": "Cultivate growth. Empower futures. Navigate the agriculture domain with clarity and purpose.",
+    "introduction": "Agriculture has now emerged as one of the popular courses after grade 12. Agriculture has different courses ranging from UG courses like B.Tech, B.Sc, B.S to Diploma courses. A few of the popular courses are Horticulture, Agricultural Engineering, Forestry, Sericulture. Agricultural courses aim to provide training to implement modern agricultural techniques and technologies in the real world scenario.",
+    "topColleges": [
+      {
+        "name": "ICAR-National Dairy Research Institute (NDRI)",
+        "location": "Karnal, Haryana",
+        "website": "http://ndri.res.in/"
+      },
+      {
+        "name": "Punjab Agricultural University",
+        "location": "Ludhiana, Punjab",
+        "website": "https://www.pau.edu/"
+      },
+      {
+        "name": "ICAR-Indian Agricultural Research Institute",
+        "location": "New Delhi",
+        "website": "https://iari.res.in/"
+      },
+      {
+        "name": "ICAR-Indian Veterinary Research Institute",
+        "location": "Izatnagar, Bareilly",
+        "website": "http://www.ivri.nic.in/"
+      },
+      {
+        "name": "GB Pant University of Agriculture & Technology",
+        "location": "Pantnagar, Uttarakhand",
+        "website": "https://www.gbpuat.ac.in/"
+      },
+      {
+        "name": "Chaudhary Charan Singh, Haryana Agriculture University",
+        "location": "Hisar, Haryana",
+        "website": "http://hau.ac.in/"
+      },
+      {
+        "name": "Guru Angad Dev Veterinary and Animal Sciences University",
+        "location": "Ludhiana, Punjab",
+        "website": "https://www.gadvasu.in/"
+      },
+      {
+        "name": "Tamil Nadu Agricultural University",
+        "location": "Coimbatore, Tamil Nadu",
+        "website": "https://tnau.ac.in/"
+      },
+      {
+        "name": "University of Agricultural Sciences, Dharwad",
+        "location": "Dharwad",
+        "website": "http://www.uasd.edu/"
+      },
+      {
+        "name": "Professor Jayashankar Telangana State Agricultural University",
+        "location": "Rajendra Nagar, Hyderabad",
+        "website": "https://www.pjtsau.edu.in/"
+      }
+    ]
+  }

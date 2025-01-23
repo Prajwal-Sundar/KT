@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useState } from "react";
 import Cards from "./cards";
+import { motion } from "framer-motion";
 
 type CareerOptions = {
   id: number;
@@ -14,7 +16,7 @@ type CareerOptions = {
 export default function Career() {
   const [data, setData] = useState<CareerOptions[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [showMore, setShowMore] = useState<boolean>(false); // Track if "See More" is clicked
+  const [showMore, setShowMore] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,16 +26,14 @@ export default function Career() {
           throw new Error("Failed to fetch domains");
         }
         const result = await response.json();
-        // console.log(result);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const careers: CareerOptions[] = result.map((domain: any) => ({
           id: domain.id,
           Profile: domain.Profile,
-          ExamName: domain.ExamName || "Exam Placeholder", // Use placeholder if ExamName is missing
+          ExamName: domain.ExamName || "Exam Placeholder",
           img:
             domain.img ||
-            "https://prod-files-secure.s3.us-west-2.amazonaws.com/b020cb67-a9a0-4a42-84cd-216945bf98f8/67927879-b327-473a-90b9-41a3ca2c41fe/temple.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45FSPPWI6X%2F20241223%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241223T062251Z&X-Amz-Expires=3600&X-Amz-Signature=39d5eed40548a4c13b39b5291f3a0d01d77730d4872c39769181055bb96d3ce3&X-Amz-SignedHeaders=host&x-id=GetObject", // Default image if not provided
-          Color: domain.Color || "#F0F0F0", // Default color if not provided
+            "https://prod-files-secure.s3.us-west-2.amazonaws.com/b020cb67-a9a0-4a42-84cd-216945bf98f8/67927879-b327-473a-90b9-41a3ca2c41fe/temple.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45FSPPWI6X%2F20241223%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241223T062251Z&X-Amz-Expires=3600&X-Amz-Signature=39d5eed40548a4c13b39b5291f3a0d01d77730d4872c39769181055bb96d3ce3&X-Amz-SignedHeaders=host&x-id=GetObject",
+          Color: domain.Color || "#F0F0F0",
         }));
         setData(careers);
       } catch (error) {
@@ -47,7 +47,7 @@ export default function Career() {
   }, []);
 
   const toggleShowMore = () => {
-    setShowMore(!showMore); // Toggle showMore state on button click
+    setShowMore(!showMore);
   };
 
   if (loading) {
@@ -59,8 +59,8 @@ export default function Career() {
   }
 
   return (
-    <div className="bg-white pb-5" id="careerSection">
-      <div className=" pt-16 pl-18px">
+    <div className="bg-white pb-5 -mt-50 md:-mt-60 lg:-mt-0" id="careerSection">
+      <div className="pt-16 pl-18px">
         <div>
           <div className="text-3xl font-Poppins font-bold text-black mb-0">
             Find Your Career
@@ -74,20 +74,28 @@ export default function Career() {
         </div>
       </div>
       <div className="flex flex-wrap gap-x-[100px] justify-center">
-        {(showMore ? data : data.slice(0, 3)).map((item: CareerOptions) => (
-          <Cards
-            key={item.id}
-            Profile={item.Profile || ""}
-            ExamName={item.ExamName}
-            img={item.img}
-            Color={item.Color}
-          />
-        ))}
+        {(showMore ? data : data.slice(0, 3)).map(
+          (item: CareerOptions, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 100 }} // Start with fade and slide up
+              whileInView={{ opacity: 1, y: 0 }} // Animate to visible state
+              viewport={{ once: true }} // Trigger animation only once
+              transition={{ duration: 0.8, delay: index * 0.2 }} // Add delay for a staggered effect
+            >
+              <Cards
+                Profile={item.Profile || ""}
+                ExamName={item.ExamName}
+                img={item.img}
+              />
+            </motion.div>
+          )
+        )}
       </div>
       <div className="mb-2 flex justify-center mt-8 ">
         <button
           className="flex items-center justify-center bg-mainBlue p-4 rounded-full transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
-          onClick={toggleShowMore} // Handle the button click
+          onClick={toggleShowMore}
         >
           <div className="text-md md:text-xl font-Poppins text-white font-semibold">
             {showMore ? "Show Less" : "See More"}

@@ -7,16 +7,13 @@ import React from "react";
 interface CardsProps {
   Profile: string;
   ExamName: string;
-  Color: string;
   img: string;
-  description: string; // Added a description prop
 }
 export default function Cards({ Profile, ExamName, img }: CardsProps) {
   return (
     <Link
       href={`/${Profile.toLowerCase()}`}
-      className="mt-8 w-72 h-auto flex flex-col justify-start cursor-pointer items-center rounded-3xl p-6 shadow-md transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
-      style={{ backgroundColor: "#fff" }}
+      className="mt-8 w-72 h-auto flex flex-col justify-start cursor-pointer items-center rounded-3xl p-6 shadow-xl transform transition-transform duration-200 hover:scale-105 hover:shadow-2xl bg-purple-50"
     >
       <Image src={img} alt={`${Profile} icon`} height={80} width={80} />
       <div className="text-2xl mt-4 font-Poppins font-bold text-black text-center">

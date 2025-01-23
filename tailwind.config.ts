@@ -9,9 +9,29 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scaleUp: {
+          "0%": {
+            transform: "scale(0)",
+            transformOrigin: "bottom left",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            transformOrigin: "bottom left",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        scaleUp: "scaleUp 0.5s ease-out forwards", // Adjust duration and timing
+      },
       spacing: {
         "18px": "75px",
         "333px": "333px",
+      },
+      margin: {
+        "100vh": "100vh",
       },
       colors: {
         background: "hsl(var(--background))",

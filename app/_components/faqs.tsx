@@ -23,10 +23,10 @@ export default function Faqs() {
           className="w-full lg:w-auto h-auto"
         />
         <div className="mt-6 lg:mt-0 text-center lg:text-left">
-          <div className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-semibold mb-12">
+          <div className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-bold mb-12">
             What is Kalvithadam?
           </div>
-          <div className="w-full sm:w-[500px] font-Inter font-medium text-[16px] sm:text-[18px] lg:font-semibold lg:text-[20px]">
+          <div className="w-full sm:w-[500px] font-Inter font-medium text-[16px] sm:text-[18px] lg:font-bold lg:text-[20px]">
             Career guidance sessions are pivotal in aiding young individuals to
             make well-informed decisions about their educational pursuits and
             future professional paths immediately after completing their
@@ -34,11 +34,15 @@ export default function Faqs() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col-reverse lg:flex-row justify-center items-center px-4 sm:px-10 lg:gap-20 mt-6 lg:mt-10">
-        <div className="mt-6 lg:mt-0 text-center lg:text-left">
-          <div className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-semibold mb-12">
-            How can we get in <br className="hidden lg:block" /> touch with you
-            ?
+      <div className="flex flex-col-reverse lg:flex-row justify-center items-center px-4 sm:px-10 lg:gap-8 mt-6 lg:mt-10">
+        <div className="  mt-6 lg:mt-0 text-center lg:text-left ">
+          <div className="flex flex-col mb-12">
+            <span className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-bold mb-1 lg:mb-4">
+              How can we get
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-bold ">
+              in touch with you ?
+            </span>
           </div>
           <div className="w-full sm:w-[500px] font-Inter font-medium text-[16px] sm:text-[18px] lg:font-semibold lg:text-[20px]">
             Career guidance sessions are pivotal in aiding young individuals to
@@ -64,9 +68,13 @@ export default function Faqs() {
           className="w-full lg:w-auto h-auto"
         />
         <div className="mt-6 lg:mt-0 text-center lg:text-left">
-          <div className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-semibold mb-12">
-            How can we benefit from <br className="hidden lg:block" /> your
-            website?
+          <div className="flex flex-col mb-12">
+            <span className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-bold mb-1 lg:mb-4">
+              How can we benefit
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-[48px] font-Inter font-bold ">
+              from you website?
+            </span>
           </div>
           <div className="w-full sm:w-[500px] font-Inter font-medium text-[16px] sm:text-[18px] lg:font-semibold lg:text-[20px]">
             Career guidance sessions are pivotal in aiding young individuals to

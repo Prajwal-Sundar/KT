@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 
 const NOTION_API_KEY = "secret_o9Xxhf8GQq5NUCJkw1WKlDkMrvNVNogPIATPkOppmhn";
+// const DOM_DB = "18443df6abb780dc9bb0f06344c8af2a";
 const DOM_DB = "757ece9dcd764ffb9396af8851e3525f";
 const AGRI_DB = "16843df6abb78093aecdd189102447d5";
 const COLOURS_LIST = ["#F5D365", "#EF523C", "#FEAFE1"];
@@ -34,7 +35,7 @@ const getDomains = async () => {
       ExamName: row.properties.Exam.rich_text[0]?.plain_text,
       img: row.properties.Image.files[0]?.file.url,
       Color: COLOURS_LIST[index % COLOURS_LIST.length],
-      Database: row.properties.Database.rich_text[0]?.plain_text,
+      // url: row.properties.Domain.title[0]?.plain_text,
     };
   });
   return domains;
@@ -49,6 +50,7 @@ const getDomain = async (domain) => {
   });
   if (!DOMAIN_DB) return false;
   const response = await notion.databases.query({ database_id: DOMAIN_DB });
+  log(response);
   const obj = response.results[0].properties;
   const result = {
     mainHeading: obj.MainHeading.title[0]?.plain_text,

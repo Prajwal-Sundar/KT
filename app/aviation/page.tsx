@@ -27,7 +27,7 @@ export default function page() {
       </section>
 
       <section className="mb-8">
-        <h2 id="BScinAviation" className="text-xl font-semibold mb-4">
+        <h2 id="Introduction" className="text-xl font-semibold mb-4">
           B.SC IN AVIATION
         </h2>
         <p className="font-semibold mb-2">

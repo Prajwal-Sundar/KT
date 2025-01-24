@@ -21,45 +21,6 @@ const log = (obj) =>
     })
   );
 
-const getDomains = async () => {
-  const response = await notion.databases.query({ database_id: DOM_DB });
-  /*response.results.sort((a, b) => {
-    return a.properties.Priority.number - b.properties.Priority.number;
-  });*/
-  const domains = new Array(response.results.length);
-  response.results.forEach((row, index) => {
-    domains[index] = {
-      id: index,
-      Profile: row.properties.Title.rich_text[0]?.plain_text,
-      ExamName: row.properties.Exam.rich_text[0]?.plain_text,
-      img: row.properties.Image.files[0]?.file.url,
-      Color: "#" + COLOURS_LIST[index % COLOURS_LIST.length],
-      // url: row.properties.Domain.title[0]?.plain_text,
-    };
-  });
-  return domains;
-};
-
-const getDomain = async (domain) => {
-  const domains = await getDomains();
-  let DOMAIN_DB = false;
-  domains.forEach((obj, index) => {
-    if (obj.Profile.toLowerCase() == domain.toLowerCase())
-      DOMAIN_DB = obj.Database;
-  });
-  if (!DOMAIN_DB) return false;
-  const response = await notion.databases.query({ database_id: DOMAIN_DB });
-  log(response);
-  const obj = response.results[0].properties;
-  const result = {
-    mainHeading: obj.MainHeading.title[0]?.plain_text,
-    subHeading: obj.SubHeading.rich_text[0]?.plain_text,
-    content: obj.Content.rich_text[0]?.plain_text.split("\n"),
-  };
-  log(result);
-  return result;
-};
-
 const app = express();
 app.use(cors());
 const port = 5000;
@@ -67,13 +28,6 @@ const port = 5000;
 app.get("/domains", async (req, res) => {
   const domains = await getDomains();
   res.send(JSON.stringify(domains));
-});
-
-app.get("/domains/:domain", async (req, res) => {
-  const { domain } = req.params;
-  const data = await getDomain(domain);
-  if (!data) res.send("Domain Not Found in Database.");
-  else res.send(JSON.stringify(data));
 });
 
 app.use(express.static("public"));

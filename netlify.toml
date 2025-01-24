@@ -1,0 +1,4 @@
+[build]
+  functions = "netlify/functions"
+  publish = "public"
+  environment = { GO_VERSION = "1.19" } # Add the Go version here

@@ -4,12 +4,12 @@ const { Client } = require("@notionhq/client");
 const util = require("util");
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
-const NOTION_API_KEY = "secret_o9Xxhf8GQq5NUCJkw1WKlDkMrvNVNogPIATPkOppmhn";
-// const DOM_DB = "18443df6abb780dc9bb0f06344c8af2a";
-const DOM_DB = "757ece9dcd764ffb9396af8851e3525f";
-const AGRI_DB = "16843df6abb78093aecdd189102447d5";
-const COLOURS_LIST = ["#F5D365", "#EF523C", "#FEAFE1"];
+const NOTION_API_KEY = process.env.NOTION_API_KEY;
+const DOM_DB = process.env.DOM_DB;
+const COLOURS_LIST = process.env.COLOURS_LIST.split(",");
+
 const notion = new Client({ auth: NOTION_API_KEY });
 
 const log = (obj) =>
@@ -23,18 +23,17 @@ const log = (obj) =>
 
 const getDomains = async () => {
   const response = await notion.databases.query({ database_id: DOM_DB });
-  response.results.sort((a, b) => {
+  /*response.results.sort((a, b) => {
     return a.properties.Priority.number - b.properties.Priority.number;
-  });
+  });*/
   const domains = new Array(response.results.length);
-  log(response.results);
   response.results.forEach((row, index) => {
     domains[index] = {
       id: index,
-      Profile: row.properties.Title.title[0]?.plain_text,
+      Profile: row.properties.Title.rich_text[0]?.plain_text,
       ExamName: row.properties.Exam.rich_text[0]?.plain_text,
       img: row.properties.Image.files[0]?.file.url,
-      Color: COLOURS_LIST[index % COLOURS_LIST.length],
+      Color: "#" + COLOURS_LIST[index % COLOURS_LIST.length],
       // url: row.properties.Domain.title[0]?.plain_text,
     };
   });

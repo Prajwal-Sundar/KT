@@ -1,22 +1,13 @@
 import { Client } from "@notionhq/client";
 import {
-  GetPageResponse,
+  BlockObjectResponse,
   ListBlockChildrenResponse,
   PageObjectResponse,
-  RichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import "../globals.css";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
-  Key,
-} from "react";
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-const convertToEmbedUrl = (originalUrl: any) => {
+const convertToEmbedUrl = (originalUrl: string) => {
   const url = new URL(originalUrl);
   const videoId = url.searchParams.get("v"); // Extract the "v" parameter
 
@@ -73,7 +64,7 @@ export default async function NotionPage({
   params: { id: string };
 }) {
   const mapping = await fetchMapping();
-  const id = await params.id;
+  // const id = await params.id;
   const entry = mapping.find((m) => m.customName === params.id);
 
   if (!entry) {
@@ -286,7 +277,7 @@ function renderBlocks(blocks: ListBlockChildrenResponse["results"] | null) {
   let currentList: JSX.Element[] = [];
   let listType: "ul" | "ol" | null = null;
 
-  const renderNestedBlocks = async (block: any) => {
+  const renderNestedBlocks = async (block: BlockObjectResponse) => {
     if (block.has_children) {
       const childBlocks = notion.blocks.children.list({ block_id: block.id });
       return renderBlocks((await childBlocks).results);

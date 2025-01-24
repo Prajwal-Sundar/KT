@@ -58,12 +58,13 @@ const fetchMapping = async () => {
   return mapping as { customName: string; pageId: string }[];
 };
 
-// Server Component
-export default async function NotionPage({
-  params,
-}: {
+// Define the expected type for params
+interface PageParams {
   params: { id: string };
-}) {
+}
+
+// Server Component
+export default async function NotionPage({ params }: PageParams) {
   const mapping = await fetchMapping();
   const entry = mapping.find((m) => m.customName === params.id);
 
